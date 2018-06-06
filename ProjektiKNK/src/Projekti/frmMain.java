@@ -1,8 +1,10 @@
 package Projekti;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,6 +13,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
+import javax.swing.JRadioButton;
 
 public class frmMain extends JFrame {
 
@@ -75,5 +79,34 @@ public class frmMain extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JTextPane txtpnFederataEFutbollit = new JTextPane();
+		txtpnFederataEFutbollit.setText("\t\t\t\t\tFEDERATA E FUTBOLLIT TE KOSOVES");
+		txtpnFederataEFutbollit.setBounds(10, 27, 300, 203);
+		contentPane.add(txtpnFederataEFutbollit);
+
+		final ButtonGroup buttonGroup = new ButtonGroup();
+		JRadioButton rdbtnRed = new JRadioButton("Red");
+		rdbtnRed.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtpnFederataEFutbollit.setCaretColor(Color.red);
+			}
+		});
+		buttonGroup.add(rdbtnRed);
+		rdbtnRed.setBounds(319, 38, 109, 23);
+		
+		contentPane.add(rdbtnRed);
+		
+		JRadioButton rdbBlue= new JRadioButton("Blue");
+		rdbBlue.setBounds(316, 67, 109, 23);
+		buttonGroup.add(rdbBlue);
+		contentPane.add(rdbBlue);
+		
+		if(rdbtnRed.isSelected()) {
+			txtpnFederataEFutbollit.setSelectedTextColor(Color.red);
+		}
+		else {
+			txtpnFederataEFutbollit.setSelectedTextColor(Color.blue);
+		}
 	}
 }
